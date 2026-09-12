@@ -8,25 +8,43 @@
   <title>AudioTag Pro – Free Online Audio & MP3/M4A Metadata Tag Editor</title>
   <meta name="title" content="AudioTag Pro – Free Online Audio & MP3/M4A Metadata Tag Editor">
   <meta name="description" content="Edit ID3 tags, MP4 atoms, artist, album, synced lyrics (.lrc), and embed 1:1 HD album artwork directly in your browser. Zero server uploads, 100% lossless audio quality.">
-  <meta name="keywords" content="online audio tag editor, edit mp3 metadata online, m4a tag editor, embed album art mp3, synced lyrics editor, lrc karaoke editor, id3 tag editor web, fix song tags free">
-  <meta name="author" content="AudioTag Pro">
-  <meta name="robots" content="index, follow">
+  <meta name="keywords" content="online audio tag editor, edit mp3 metadata online, m4a tag editor, embed album art mp3, synced lyrics editor, lrc karaoke editor, id3 tag editor web, fix song tags free, audio metadata editor, mp3 tagger, flac tag editor, wav metadata editor, lossless music tagger">
+  <meta name="author" content="Dus Mamud">
+  <meta name="publisher" content="Dus Mamud">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <meta name="theme-color" content="#09090b">
+  <meta name="application-name" content="AudioTag Pro">
+  <meta name="apple-mobile-web-app-title" content="AudioTag Pro">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="canonical" href="https://dusmamud.github.io/music-metadata-editor/">
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://audiotag.pro/">
-  <meta property="og:title" content="AudioTag Pro – Free Online Audio Metadata Tag Editor">
-  <meta property="og:description" content="Fast, secure, online audio tag editor. Edit ID3 tags, embed HD album covers, and update metadata without audio re-encoding.">
-  <meta property="og:image" content="/static/favicon.svg">
+  <meta property="og:site_name" content="AudioTag Pro">
+  <meta property="og:url" content="https://dusmamud.github.io/music-metadata-editor/">
+  <meta property="og:title" content="AudioTag Pro – Free Online Audio & MP3/M4A Metadata Tag Editor">
+  <meta property="og:description" content="Edit ID3 tags, MP4 atoms, artist, album, synced lyrics (.lrc), and embed 1:1 HD album artwork directly in your browser. Zero server uploads, 100% lossless audio quality.">
+  <meta property="og:image" content="https://dusmamud.github.io/music-metadata-editor/assets/app-preview.png">
+  <meta property="og:image:secure_url" content="https://dusmamud.github.io/music-metadata-editor/assets/app-preview.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="850">
+  <meta property="og:image:alt" content="AudioTag Pro Studio UI Preview">
+  <meta property="og:locale" content="en_US">
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image">
-  <meta property="twitter:title" content="AudioTag Pro – Free Online Audio Metadata Tag Editor">
-  <meta property="twitter:description" content="Fast, secure, online audio tag editor. Edit ID3 tags, embed HD album covers, and update metadata without audio re-encoding.">
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://dusmamud.github.io/music-metadata-editor/">
+  <meta name="twitter:title" content="AudioTag Pro – Free Online Audio & MP3/M4A Metadata Tag Editor">
+  <meta name="twitter:description" content="Edit ID3 tags, MP4 atoms, artist, album, embed 1:1 HD album art and timestamped synced karaoke lyrics (.lrc) in browser memory. Zero uploads, 100% lossless.">
+  <meta name="twitter:image" content="https://dusmamud.github.io/music-metadata-editor/assets/app-preview.png">
+  <meta name="twitter:image:alt" content="AudioTag Pro Studio UI Preview">
 
-  <!-- Favicon -->
+  <!-- Favicon & Mobile Web Icons -->
   <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="apple-touch-icon" href="/static/favicon.svg">
 
   <!-- Typography & Icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -42,17 +60,50 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "WebApplication",
-    "name": "AudioTag Pro",
-    "url": "https://audiotag.pro",
-    "description": "Free online audio metadata tag editor for MP3, M4A, FLAC, and WAV files with embedded cover artwork and synced lyrics support.",
-    "applicationCategory": "MultimediaApplication",
-    "operatingSystem": "All",
-    "offers": {
-      "@type": "Offer",
-      "price": "0",
-      "priceCurrency": "USD"
-    }
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "https://dusmamud.github.io/music-metadata-editor/#webapp",
+        "name": "AudioTag Pro",
+        "url": "https://dusmamud.github.io/music-metadata-editor/",
+        "description": "Free online audio metadata tag editor for MP3, M4A, FLAC, and WAV files with embedded cover artwork and synced lyrics support. Zero server uploads, 100% client-side lossless processing.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5 Canvas & Web Audio API support.",
+        "screenshot": "https://dusmamud.github.io/music-metadata-editor/assets/app-preview.png",
+        "softwareVersion": "1.0.0",
+        "author": {
+          "@type": "Person",
+          "name": "Dus Mamud",
+          "url": "https://github.com/dusmamud"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "featureList": [
+          "In-Browser Zero Server Upload processing",
+          "Lossless ID3v2.3 and ID3v2.4 MP3 tag editing",
+          "Lossless MP4 / M4A atom tagging",
+          "Synced LRC Karaoke Lyrics visualizer & embedder",
+          "1:1 HD Square Cover Artwork cropping and embedding",
+          "LRCLIB synced lyrics integration",
+          "Audio container magic-byte verification"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://dusmamud.github.io/music-metadata-editor/#website",
+        "url": "https://dusmamud.github.io/music-metadata-editor/",
+        "name": "AudioTag Pro",
+        "description": "Professional In-Browser Audio Metadata & Synced Lyrics Studio",
+        "publisher": {
+          "@type": "Person",
+          "name": "Dus Mamud"
+        }
+      }
+    ]
   }
   </script>
 </head>
@@ -111,6 +162,12 @@
           <span class="text-[9px] text-zinc-500">(Zero Uploads)</span>
         </div>
       </button>
+
+      <!-- GitHub Repo Link -->
+      <a href="https://github.com/dusmamud/music-metadata-editor" target="_blank" rel="noopener noreferrer" class="hidden sm:inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/90 border border-zinc-800 text-xs font-medium text-zinc-300 hover:text-white hover:border-zinc-700 transition" title="View Source on GitHub">
+        <i class="fa-brands fa-github text-sm"></i>
+        <span>GitHub</span>
+      </a>
 
       <!-- Launch Studio Button -->
       <a href="#studio-section" class="btn-primary text-xs py-1.5 px-3">
@@ -805,16 +862,20 @@
         <span>&bull; In-Browser Audio Tag Studio</span>
       </div>
 
-      <div class="flex items-center space-x-6 text-zinc-400">
+      <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-zinc-400">
         <a href="#studio-section" class="hover:text-white transition">Studio</a>
         <a href="#how-it-works" class="hover:text-white transition">How It Works</a>
         <a href="#features" class="hover:text-white transition">Features</a>
         <a href="#formats" class="hover:text-white transition">Formats</a>
         <a href="#faq" class="hover:text-white transition">FAQ</a>
+        <a href="https://github.com/dusmamud/music-metadata-editor" target="_blank" rel="noopener noreferrer" class="hover:text-white transition inline-flex items-center space-x-1.5">
+          <i class="fa-brands fa-github text-sm"></i>
+          <span>GitHub</span>
+        </a>
       </div>
 
-      <div class="text-zinc-600 text-[11px]">
-        &copy; 2026 AudioTag Pro. GitHub Pages & Python Dual Mode.
+      <div class="text-zinc-600 text-[11px] text-center md:text-right">
+        &copy; 2026 AudioTag Pro by Dus Mamud. Released under MIT License.
       </div>
     </div>
   </footer>
