@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Sitemap Index
+Sitemap: https://dusmamud.github.io/music-metadata-editor/sitemap.xml
