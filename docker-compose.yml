@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  audiotag-pro:
+    build: .
+    container_name: audiotag_pro
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=AudioTag Pro
+      - APP_HOST=0.0.0.0
+      - APP_PORT=8000
+      - SESSION_TTL_MINUTES=60
+      - MAX_UPLOAD_SIZE_MB=100
+    volumes:
+      - ./storage:/app/storage

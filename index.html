@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="violet">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Primary SEO Meta Tags -->
+  <title>AudioTag Pro – Free Online Audio & MP3/M4A Metadata Tag Editor</title>
+  <meta name="title" content="AudioTag Pro – Free Online Audio & MP3/M4A Metadata Tag Editor">
+  <meta name="description" content="Edit ID3 tags, MP4 atoms, artist, album, synced lyrics (.lrc), and embed 1:1 HD album artwork directly in your browser. Zero server uploads, 100% lossless audio quality.">
+  <meta name="keywords" content="online audio tag editor, edit mp3 metadata online, m4a tag editor, embed album art mp3, synced lyrics editor, lrc karaoke editor, id3 tag editor web, fix song tags free">
+  <meta name="author" content="AudioTag Pro">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#09090b">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://audiotag.pro/">
+  <meta property="og:title" content="AudioTag Pro – Free Online Audio Metadata Tag Editor">
+  <meta property="og:description" content="Fast, secure, online audio tag editor. Edit ID3 tags, embed HD album covers, and update metadata without audio re-encoding.">
+  <meta property="og:image" content="./static/favicon.svg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="AudioTag Pro – Free Online Audio Metadata Tag Editor">
+  <meta property="twitter:description" content="Fast, secure, online audio tag editor. Edit ID3 tags, embed HD album covers, and update metadata without audio re-encoding.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="./static/favicon.svg">
+
+  <!-- Typography & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Tailwind CSS & Studio Stylesheet -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="./static/css/studio.css">
+
+  <!-- Structured Data (JSON-LD) for Search Engines -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "AudioTag Pro",
+    "url": "https://audiotag.pro",
+    "description": "Free online audio metadata tag editor for MP3, M4A, FLAC, and WAV files with embedded cover artwork and synced lyrics support.",
+    "applicationCategory": "MultimediaApplication",
+    "operatingSystem": "All",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+<body class="bg-[#09090b] text-zinc-100 min-h-screen flex flex-col font-['Inter'] selection:bg-violet-600 selection:text-white relative overflow-x-hidden">
+
+  <!-- Dynamic Ambient Glow Effect in Background -->
+  <div class="hero-glow"></div>
+
+  <!-- ========================================================================= -->
+  <!-- TOP NAVIGATION BAR                                                        -->
+  <!-- ========================================================================= -->
+  <header class="h-16 border-b border-zinc-900 bg-black/85 backdrop-blur-md sticky top-0 z-50 flex items-center justify-between px-3 sm:px-8 w-full max-w-full">
+    
+    <!-- Left: Brand Identity with Animated Equalizer -->
+    <div class="flex items-center space-x-3 flex-shrink-0">
+      <a href="#" class="flex items-center space-x-2.5 group">
+        <div class="w-8 h-8 rounded-xl bg-zinc-900 border border-zinc-800 flex items-center justify-center space-x-0.5 group-hover:scale-105 transition shadow-inner p-1">
+          <span class="equalizer-bar"></span>
+          <span class="equalizer-bar"></span>
+          <span class="equalizer-bar"></span>
+          <span class="equalizer-bar"></span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-sm font-bold tracking-tight text-white">AudioTag Pro</span>
+          <span class="text-[9px] font-mono font-bold px-1.5 py-0.5 rounded bg-zinc-800 text-zinc-300 border border-zinc-700 hidden sm:inline-block">STUDIO</span>
+        </div>
+      </a>
+    </div>
+
+    <!-- Center: Navigation Links -->
+    <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium text-zinc-400">
+      <a href="#studio-section" class="hover:text-white transition">Studio Editor</a>
+      <a href="#how-it-works" class="hover:text-white transition">How to Use</a>
+      <a href="#features" class="hover:text-white transition">Features</a>
+      <a href="#formats" class="hover:text-white transition">Supported Formats</a>
+      <a href="#faq" class="hover:text-white transition">FAQ</a>
+    </nav>
+
+    <!-- Right: Theme Selector & Engine Status -->
+    <div class="flex items-center space-x-2.5 sm:space-x-4 flex-shrink-0">
+      
+      <!-- 5-Color Theme Selector -->
+      <div class="flex items-center space-x-1.5 bg-zinc-950 p-1.5 rounded-full border border-zinc-800" title="Switch Theme Palette">
+        <button type="button" onclick="setTheme('violet')" data-theme-name="violet" class="theme-pill-btn bg-violet-500 active" title="Neon Violet Theme"></button>
+        <button type="button" onclick="setTheme('emerald')" data-theme-name="emerald" class="theme-pill-btn bg-emerald-500" title="Cyber Emerald Theme"></button>
+        <button type="button" onclick="setTheme('cyan')" data-theme-name="cyan" class="theme-pill-btn bg-cyan-500" title="Electric Cyan Theme"></button>
+        <button type="button" onclick="setTheme('amber')" data-theme-name="amber" class="theme-pill-btn bg-amber-500" title="Sunset Amber Theme"></button>
+        <button type="button" onclick="setTheme('rose')" data-theme-name="rose" class="theme-pill-btn bg-rose-500" title="Crimson Rose Theme"></button>
+      </div>
+
+      <!-- Engine Status Badge & Toggle -->
+      <button id="engine-toggle-btn" type="button" class="hidden md:flex items-center space-x-2 px-3 py-1 rounded-full bg-zinc-950 border border-zinc-800/90 text-[11px] text-zinc-300 hover:border-zinc-700 transition cursor-pointer" title="Click to toggle Engine (Browser vs Python Backend if available)">
+        <div id="engine-status-badge" class="flex items-center space-x-1.5">
+          <span class="w-2 h-2 rounded-full bg-cyan-400"></span>
+          <span class="font-semibold text-cyan-300">100% In-Browser</span>
+          <span class="text-[9px] text-zinc-500">(Zero Uploads)</span>
+        </div>
+      </button>
+
+      <!-- Launch Studio Button -->
+      <a href="#studio-section" class="btn-primary text-xs py-1.5 px-3">
+        <span>Studio</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- ========================================================================= -->
+  <!-- HERO SECTION                                                              -->
+  <!-- ========================================================================= -->
+  <section class="relative pt-12 pb-10 px-4 sm:px-6 text-center max-w-5xl mx-auto flex flex-col items-center">
+    
+    <!-- Hero Announcement Pill -->
+    <div class="inline-flex items-center space-x-2 px-4 py-1.5 rounded-full bg-zinc-900/90 border border-zinc-800 text-[11px] font-medium text-zinc-300 mb-5 shadow-sm">
+      <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+      <span>100% In-Browser Audio Studio &bull; Lossless Tag Injection &bull; GitHub Pages Ready</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight">
+      Professional Audio Metadata & <br class="hidden sm:inline">
+      <span class="theme-gradient-text">Synced Lyrics Studio</span>
+    </h1>
+
+    <!-- Subtitle -->
+    <p class="mt-4 text-xs sm:text-sm text-zinc-400 max-w-2xl leading-relaxed">
+      Edit ID3 tags, MP4 atoms, attach 1:1 HD album covers, and embed timestamped karaoke lyrics directly in your browser. Works seamlessly on GitHub Pages without needing a server.
+    </p>
+
+    <!-- Quick Stat Highlights -->
+    <div class="mt-6 flex flex-wrap items-center justify-center gap-2 sm:gap-3 text-[11px] text-zinc-400 font-medium max-w-3xl">
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800">
+        <i class="fa-solid fa-shield-halved text-emerald-400"></i> Zero Server Uploads
+      </span>
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800">
+        <i class="fa-solid fa-music text-violet-400"></i> MP3 & M4A/AAC Support
+      </span>
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800">
+        <i class="fa-solid fa-microphone text-amber-400"></i> Synced Karaoke (.LRC)
+      </span>
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800">
+        <i class="fa-solid fa-crop-simple text-cyan-400"></i> 1:1 Canvas Art Cropper
+      </span>
+      <span class="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800">
+        <i class="fa-brands fa-github text-zinc-300"></i> Static GitHub Pages Ready
+      </span>
+    </div>
+
+    <!-- Dual Hero Action Buttons -->
+    <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+      <a href="#studio-section" class="btn-primary text-xs py-2.5 px-5">
+        <i class="fa-solid fa-sliders text-xs"></i>
+        <span>Launch Studio Editor</span>
+      </a>
+      <button type="button" id="btn-load-demo-hero" class="btn-secondary text-xs py-2.5 px-5">
+        <i class="fa-solid fa-play text-xs text-amber-400"></i>
+        <span>Load Sample Demo Song</span>
+      </button>
+    </div>
+
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- STUDIO WORKSPACE SECTION                                                  -->
+  <!-- ========================================================================= -->
+  <section id="studio-section" class="studio-container py-6 flex-1 flex flex-col scroll-mt-20">
+
+    <div class="flex flex-col lg:flex-row gap-6 items-start w-full">
+
+      <!-- LEFT SIDEBAR: Upload Card & Track Queue -->
+      <aside class="w-full lg:w-80 flex-shrink-0 flex flex-col space-y-4">
+        
+        <!-- Upload Zone Card -->
+        <div id="main-dropzone" class="dropzone p-6 rounded-2xl flex flex-col items-center justify-center text-center cursor-pointer group">
+          <input type="file" id="audio-file-input" class="hidden" multiple accept=".mp3,.m4a,.aac,.flac,.wav,.ogg,.opus">
+          <div class="w-12 h-12 rounded-2xl bg-zinc-900 border border-zinc-800 text-zinc-300 flex items-center justify-center mb-3 group-hover:scale-105 transition shadow-inner">
+            <i class="fa-solid fa-cloud-arrow-up text-xl text-violet-400"></i>
+          </div>
+          <h3 class="text-xs font-bold text-zinc-200">Click or Drop Audio Tracks</h3>
+          <p class="text-[11px] text-zinc-500 mt-1">Supports MP3, M4A, FLAC, WAV, AAC</p>
+          <div class="flex items-center gap-2 mt-3.5">
+            <button type="button" onclick="document.getElementById('audio-file-input').click()" class="px-3 py-1.5 rounded-lg bg-zinc-900 border border-zinc-800 text-xs font-medium text-zinc-300 hover:text-white hover:bg-zinc-800 transition">
+              Browse Files
+            </button>
+            <button type="button" id="btn-load-demo-track" class="px-3 py-1.5 rounded-lg bg-zinc-900/80 border border-zinc-800 text-xs font-medium text-amber-300 hover:text-amber-200 transition" title="Load sample tone track to test UI immediately">
+              Load Demo
+            </button>
+          </div>
+
+          <!-- Upload Progress Indicator -->
+          <div id="upload-progress-container" class="w-full mt-3.5 hidden">
+            <div class="flex justify-between text-[10px] text-zinc-400 mb-1">
+              <span id="upload-progress-text">Reading audio in browser... 0%</span>
+            </div>
+            <div class="w-full bg-zinc-800 rounded-full h-1.5 overflow-hidden">
+              <div id="upload-progress-bar" class="bg-violet-500 h-1.5 rounded-full transition-all duration-150" style="width: 0%"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Track Queue Header & Actions -->
+        <div class="flex items-center justify-between px-1">
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-semibold uppercase tracking-wider text-zinc-400">Tracks Queue</span>
+            <span id="track-count-badge" class="text-[10px] font-mono px-2 py-0.5 rounded-full bg-zinc-900 border border-zinc-800 text-zinc-400">0 tracks</span>
+          </div>
+          <button type="button" id="btn-clear-all-tracks" class="text-[11px] text-zinc-500 hover:text-rose-400 transition" title="Clear all tracks from queue">
+            Clear All
+          </button>
+        </div>
+
+        <!-- Track Queue List Container -->
+        <div id="track-list" class="w-full overflow-y-auto space-y-2 max-h-[480px] pr-1">
+          <!-- Dynamically rendered track items -->
+        </div>
+      </aside>
+
+      <!-- RIGHT MAIN STAGE: Tag Editor & Audio Player -->
+      <div class="flex-1 w-full min-w-0 flex flex-col space-y-5">
+
+        <!-- Empty State Hero (shown when no track loaded) -->
+        <div id="empty-state" class="p-10 sm:p-14 rounded-3xl bg-zinc-950/80 border border-zinc-900 flex flex-col items-center justify-center text-center">
+          <div class="w-16 h-16 rounded-2xl bg-zinc-900 border border-zinc-800 flex items-center justify-center text-zinc-500 mb-4 shadow-inner">
+            <i class="fa-solid fa-music text-2xl text-violet-400"></i>
+          </div>
+          <h2 class="text-base sm:text-lg font-bold text-zinc-200">No Audio Track Selected</h2>
+          <p class="text-xs text-zinc-500 max-w-sm mt-1.5 leading-relaxed">
+            Drop your MP3, M4A, or FLAC songs into the studio to inspect existing metadata, crop 1:1 cover artwork, and embed synced karaoke lyrics.
+          </p>
+          <div class="mt-5 flex items-center gap-3">
+            <button onclick="document.getElementById('audio-file-input').click()" class="btn-primary text-xs">
+              <i class="fa-solid fa-plus text-[11px]"></i>
+              <span>Select Audio Tracks</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Active Editor State -->
+        <div id="editor-state" class="hidden w-full min-w-0 flex flex-col space-y-5">
+          
+          <!-- TOP AUDIO PLAYER BAR -->
+          <div class="p-4 rounded-2xl glass-panel flex flex-col md:flex-row items-center justify-between gap-4 w-full min-w-0">
+            <!-- Track Info in Player -->
+            <div class="flex items-center space-x-3 w-full md:w-64 min-w-0 flex-shrink-0">
+              <div class="w-11 h-11 rounded-xl bg-zinc-900 border border-zinc-800 overflow-hidden flex-shrink-0 flex items-center justify-center">
+                <img id="player-track-cover" src="./static/favicon.svg" class="w-full h-full object-cover">
+              </div>
+              <div class="min-w-0 flex-1">
+                <h3 id="player-track-title" class="text-xs font-bold text-zinc-100 truncate">Song Title</h3>
+                <p id="player-track-artist" class="text-[11px] text-zinc-400 truncate">Artist Name</p>
+              </div>
+            </div>
+
+            <!-- Player Controls -->
+            <div class="flex-1 max-w-xl w-full min-w-0 flex flex-col items-center space-y-1">
+              <div class="flex items-center space-x-4">
+                <button id="player-play-btn" class="w-9 h-9 rounded-full bg-violet-600 text-white hover:bg-violet-500 transition flex items-center justify-center shadow-lg shadow-violet-600/30">
+                  <i id="player-play-icon" class="fa-solid fa-play text-sm ml-0.5"></i>
+                </button>
+              </div>
+              <!-- Seek Slider & Timestamps -->
+              <div class="w-full flex items-center space-x-2 text-[10px] font-mono text-zinc-500 min-w-0">
+                <span id="player-current-time" class="flex-shrink-0">0:00</span>
+                <input id="player-seek" type="range" min="0" max="100" value="0" class="flex-1 min-w-0">
+                <span id="player-total-time" class="flex-shrink-0">0:00</span>
+              </div>
+            </div>
+
+            <!-- Quick Actions -->
+            <div class="flex items-center space-x-2 flex-shrink-0">
+              <button id="btn-download-audio" class="btn-success text-xs" title="Download audio with updated tags">
+                <i class="fa-solid fa-download text-xs"></i>
+                <span>Download</span>
+              </button>
+              <button id="btn-delete-track" class="btn-secondary text-xs text-rose-400 hover:text-rose-300 hover:border-rose-900" title="Delete track from queue">
+                <i class="fa-solid fa-trash text-xs"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- 2-COLUMN TAG STUDIO WORKBENCH -->
+          <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start w-full min-w-0">
+
+            <!-- Left Column: Cover Artwork Box & Technical Specs (4 Cols) -->
+            <div class="xl:col-span-4 flex flex-col space-y-4 w-full min-w-0">
+              
+              <!-- Cover Art Panel -->
+              <div class="p-5 rounded-2xl glass-panel flex flex-col items-center text-center">
+                <span class="studio-label self-start mb-3">Album Artwork (1:1 HD)</span>
+
+                <!-- Artwork Dropzone & Preview Box -->
+                <div id="cover-dropzone" class="w-48 h-48 sm:w-56 sm:h-56 rounded-2xl bg-zinc-950 border-2 border-dashed border-zinc-800 relative overflow-hidden flex items-center justify-center group shadow-xl cursor-pointer">
+                  <img id="editor-cover-img" src="./static/favicon.svg" alt="Album Cover" class="w-full h-full object-cover">
+                  <div class="absolute inset-0 bg-black/65 opacity-0 group-hover:opacity-100 transition flex flex-col items-center justify-center text-zinc-200 p-4">
+                    <i class="fa-solid fa-cloud-arrow-up text-2xl mb-1 text-violet-400"></i>
+                    <span class="text-xs font-semibold">Drop New Cover Here</span>
+                    <span class="text-[10px] text-zinc-400 mt-0.5">JPEG, PNG, WEBP</span>
+                  </div>
+                </div>
+
+                <input type="file" id="cover-file-input" class="hidden" accept="image/jpeg,image/png,image/webp">
+
+                <!-- Artwork Control Buttons -->
+                <div class="flex items-center space-x-2 mt-4 w-full">
+                  <button type="button" id="btn-upload-cover" class="flex-1 btn-secondary text-xs">
+                    <i class="fa-solid fa-image text-[11px] text-zinc-400"></i>
+                    <span>Change Artwork</span>
+                  </button>
+                  <button type="button" id="btn-remove-cover" class="btn-secondary text-xs text-rose-400 hover:text-rose-300 hover:border-rose-900" title="Remove embedded artwork">
+                    <i class="fa-solid fa-trash-can text-xs"></i>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Technical Audio Specs Panel -->
+              <div class="p-4 rounded-2xl bg-zinc-950 border border-zinc-900 space-y-2.5">
+                <span class="studio-label">Audio Technical Specs</span>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                  <div class="p-2 rounded-lg bg-zinc-900/60 border border-zinc-800/80 min-w-0">
+                    <span class="text-[10px] text-zinc-500 block">Container</span>
+                    <span id="tech-format" class="font-mono font-semibold text-zinc-200 truncate block">MP3</span>
+                  </div>
+                  <div class="p-2 rounded-lg bg-zinc-900/60 border border-zinc-800/80 min-w-0">
+                    <span class="text-[10px] text-zinc-500 block">Bitrate</span>
+                    <span id="tech-bitrate" class="font-mono font-semibold text-zinc-200 truncate block">320 kbps</span>
+                  </div>
+                  <div class="p-2 rounded-lg bg-zinc-900/60 border border-zinc-800/80 min-w-0">
+                    <span class="text-[10px] text-zinc-500 block">Sample Rate</span>
+                    <span id="tech-sample-rate" class="font-mono font-semibold text-zinc-200 truncate block">44100 Hz</span>
+                  </div>
+                  <div class="p-2 rounded-lg bg-zinc-900/60 border border-zinc-800/80 min-w-0">
+                    <span class="text-[10px] text-zinc-500 block">Duration</span>
+                    <span id="tech-duration" class="font-mono font-semibold text-zinc-200 truncate block">3:45</span>
+                  </div>
+                  <div class="p-2 rounded-lg bg-zinc-900/60 border border-zinc-800/80 col-span-2 min-w-0">
+                    <span class="text-[10px] text-zinc-500 block">File Size</span>
+                    <span id="tech-size" class="font-mono font-semibold text-zinc-200 truncate block">8.4 MB</span>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Right Column: Tag Editor Fields Form (8 Cols) -->
+            <div class="xl:col-span-8 p-5 sm:p-6 rounded-2xl glass-panel flex flex-col space-y-5 w-full min-w-0">
+              
+              <div class="flex items-center justify-between border-b border-zinc-800/80 pb-3 flex-wrap gap-2">
+                <h2 class="text-sm font-bold text-zinc-100 flex items-center gap-2">
+                  <i class="fa-solid fa-sliders text-violet-400 text-xs"></i>
+                  Metadata Tags Editor
+                </h2>
+                <button id="btn-save-tags" class="btn-primary text-xs">
+                  <i class="fa-solid fa-floppy-disk text-xs"></i>
+                  <span>Save & Embed Tags</span>
+                </button>
+              </div>
+
+              <!-- Fields Form Grid -->
+              <form id="metadata-form" class="space-y-4 w-full min-w-0" onsubmit="return false;">
+                
+                <!-- Row 1: Title & Artist -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="min-w-0">
+                    <label class="studio-label">Track Title</label>
+                    <input type="text" id="field-title" class="studio-input" placeholder="e.g. Bohemian Rhapsody">
+                  </div>
+                  <div class="min-w-0">
+                    <label class="studio-label">Artist(s)</label>
+                    <input type="text" id="field-artist" class="studio-input" placeholder="e.g. Queen">
+                  </div>
+                </div>
+
+                <!-- Row 2: Album & Album Artist -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="min-w-0">
+                    <label class="studio-label">Album Name</label>
+                    <input type="text" id="field-album" class="studio-input" placeholder="e.g. A Night at the Opera">
+                  </div>
+                  <div class="min-w-0">
+                    <label class="studio-label">Album Artist</label>
+                    <input type="text" id="field-album-artist" class="studio-input" placeholder="e.g. Queen">
+                  </div>
+                </div>
+
+                <!-- Row 3: Year, Genre, Track Number, Disc Number -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+                  <div class="min-w-0">
+                    <label class="studio-label">Year</label>
+                    <input type="text" id="field-year" class="studio-input" placeholder="e.g. 1975">
+                  </div>
+                  <div class="min-w-0">
+                    <label class="studio-label">Genre</label>
+                    <input type="text" id="field-genre" class="studio-input" placeholder="e.g. Rock">
+                  </div>
+                  <div class="min-w-0">
+                    <label class="studio-label">Track #</label>
+                    <input type="text" id="field-track-num" class="studio-input" placeholder="e.g. 1 or 1/12">
+                  </div>
+                  <div class="min-w-0">
+                    <label class="studio-label">Disc #</label>
+                    <input type="text" id="field-disc-num" class="studio-input" placeholder="e.g. 1 or 1/2">
+                  </div>
+                </div>
+
+                <!-- Row 4: Composer & Comment -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  <div class="min-w-0">
+                    <label class="studio-label">Composer</label>
+                    <input type="text" id="field-composer" class="studio-input" placeholder="e.g. Freddie Mercury">
+                  </div>
+                  <div class="min-w-0">
+                    <label class="studio-label">Comment</label>
+                    <input type="text" id="field-comment" class="studio-input" placeholder="Comments or notes">
+                  </div>
+                </div>
+
+                <!-- Row 5: Dual Synced LRC & Plain Lyrics Studio -->
+                <div class="space-y-2 w-full min-w-0">
+                  <div class="flex flex-wrap items-center justify-between gap-2 border-b border-zinc-800/80 pb-2">
+                    <div class="flex items-center space-x-1 bg-zinc-950 p-1 rounded-lg border border-zinc-800">
+                      <button type="button" id="tab-btn-synced" class="px-2.5 py-1 rounded-md text-xs font-semibold text-white bg-violet-600 transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-clock text-[10px]"></i>
+                        <span>Synced LRC (.lrc)</span>
+                      </button>
+                      <button type="button" id="tab-btn-plain" class="px-2.5 py-1 rounded-md text-xs font-medium text-zinc-400 hover:text-white transition flex items-center gap-1.5">
+                        <i class="fa-solid fa-align-left text-[10px]"></i>
+                        <span>Plain Lyrics</span>
+                      </button>
+                    </div>
+
+                    <div class="flex items-center space-x-2 flex-wrap gap-1.5">
+                      <input type="file" id="lrc-file-input" class="hidden" accept=".lrc,.txt">
+                      <button type="button" id="btn-upload-lrc" class="btn-secondary text-[11px] py-1 px-2.5" title="Load external .lrc file">
+                        <i class="fa-solid fa-file-arrow-up text-violet-400"></i>
+                        <span>Load .LRC</span>
+                      </button>
+                      <button type="button" id="btn-search-online-lyrics" class="btn-secondary text-[11px] py-1 px-2.5" title="Search synced lyrics online using LRCLIB">
+                        <i class="fa-solid fa-globe text-violet-400"></i>
+                        <span>Search Online (.LRC)</span>
+                      </button>
+                      <button type="button" id="btn-toggle-karaoke" class="btn-secondary text-[11px] py-1 px-2.5 border-violet-500/30 text-violet-300 hover:bg-violet-950/40" title="Toggle Live Karaoke auto-scroll view">
+                        <i class="fa-solid fa-microphone-lines text-violet-400"></i>
+                        <span>Live Karaoke</span>
+                      </button>
+                    </div>
+                  </div>
+
+                  <!-- Synced LRC Editor -->
+                  <div id="synced-lyrics-container" class="w-full min-w-0">
+                    <textarea id="field-synced-lyrics" rows="6" class="studio-input font-mono text-xs leading-relaxed" placeholder="[00:12.34] Synced lyric line with timestamps...&#10;[00:16.80] Next lyric line..."></textarea>
+                    <p class="text-[10px] text-zinc-500 mt-1">Formatted with standard [mm:ss.xx] timestamps. Automatically encoded into ID3 SYLT / USLT / MP4 atoms for mobile player karaoke.</p>
+                  </div>
+
+                  <!-- Plain Lyrics Editor -->
+                  <div id="plain-lyrics-container" class="hidden w-full min-w-0">
+                    <textarea id="field-lyrics" rows="6" class="studio-input font-mono text-xs leading-relaxed" placeholder="Paste un-synchronized plain text lyrics here..."></textarea>
+                    <p class="text-[10px] text-zinc-500 mt-1">Standard plain text lyrics without timestamps.</p>
+                  </div>
+
+                  <!-- Interactive Karaoke Auto-Scroll Preview Visualizer -->
+                  <div id="karaoke-preview-box" class="hidden p-4 rounded-xl bg-zinc-950/90 border border-violet-900/40 space-y-2 w-full min-w-0">
+                    <div class="flex items-center justify-between text-[11px] text-zinc-400 border-b border-zinc-800/80 pb-1.5">
+                      <span class="flex items-center gap-1.5 font-semibold text-violet-300">
+                        <span class="w-2 h-2 rounded-full bg-violet-400 animate-pulse"></span>
+                        Real-time Karaoke Lyrics Visualizer
+                      </span>
+                      <span class="text-[10px] text-zinc-500">Auto-syncs with audio player</span>
+                    </div>
+                    <div id="karaoke-lines-scroll" class="h-44 overflow-y-auto space-y-1.5 text-center text-xs scroll-smooth py-6 w-full">
+                      <p class="text-zinc-500 italic">No synced lyrics loaded or playback not started.</p>
+                    </div>
+                  </div>
+
+                </div>
+
+              </form>
+
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- HOW TO USE SECTION                                                        -->
+  <!-- ========================================================================= -->
+  <section id="how-it-works" class="studio-container py-16 border-t border-zinc-900 scroll-mt-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-xs font-semibold uppercase tracking-wider theme-accent-text">Simple 4-Step Process</h2>
+      <p class="text-2xl sm:text-3xl font-bold text-white mt-1">How AudioTag Pro Works</p>
+      <p class="text-xs text-zinc-400 mt-2">Edit metadata, album art, and lyrics in seconds without uploading files to any server.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <!-- Step 1 -->
+      <div class="p-6 rounded-2xl glass-panel relative overflow-hidden flex flex-col items-start">
+        <div class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 font-bold font-mono text-sm flex items-center justify-center mb-4 theme-accent-text">
+          01
+        </div>
+        <h3 class="text-sm font-bold text-white">Drop Audio Files</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+          Select or drag MP3, M4A, FLAC, or WAV tracks. Files are read directly in your browser memory via ArrayBuffer with zero delay.
+        </p>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="p-6 rounded-2xl glass-panel relative overflow-hidden flex flex-col items-start">
+        <div class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 font-bold font-mono text-sm flex items-center justify-center mb-4 theme-accent-text">
+          02
+        </div>
+        <h3 class="text-sm font-bold text-white">Auto-Inspect Tags</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+          Universal byte sniffing extracts container headers, existing ID3/MP4 metadata, and detects fake MP3s disguised as MP4 files.
+        </p>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="p-6 rounded-2xl glass-panel relative overflow-hidden flex flex-col items-start">
+        <div class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 font-bold font-mono text-sm flex items-center justify-center mb-4 theme-accent-text">
+          03
+        </div>
+        <h3 class="text-sm font-bold text-white">1:1 Art & Synced LRC</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+          Drop any image to auto-crop to 1:1 HD square. Search or paste timestamped synced lyrics with real-time scrolling karaoke.
+        </p>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="p-6 rounded-2xl glass-panel relative overflow-hidden flex flex-col items-start">
+        <div class="w-10 h-10 rounded-xl bg-zinc-900 border border-zinc-800 font-bold font-mono text-sm flex items-center justify-center mb-4 theme-accent-text">
+          04
+        </div>
+        <h3 class="text-sm font-bold text-white">Lossless Export</h3>
+        <p class="text-xs text-zinc-400 mt-2 leading-relaxed">
+          Tags are injected into binary containers losslessly without re-encoding audio bitstreams, compatible with all mobile and car players.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FEATURES SECTION                                                          -->
+  <!-- ========================================================================= -->
+  <section id="features" class="studio-container py-16 border-t border-zinc-900 scroll-mt-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-xs font-semibold uppercase tracking-wider theme-accent-text">Why Choose AudioTag Pro</h2>
+      <p class="text-2xl sm:text-3xl font-bold text-white mt-1">Built for Modern Music Lovers</p>
+      <p class="text-xs text-zinc-400 mt-2">Engineered with cutting-edge in-browser binary manipulation for maximum speed, security, and portability.</p>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Feature 1 -->
+      <div class="p-6 rounded-2xl glass-panel flex flex-col space-y-2">
+        <div class="w-10 h-10 rounded-xl bg-emerald-950/60 border border-emerald-800/60 text-emerald-400 flex items-center justify-center mb-2">
+          <i class="fa-solid fa-lock text-base"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white">100% In-Browser Privacy</h4>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Zero bytes uploaded. Runs fully client-side on GitHub Pages. Your music stays on your device.
+        </p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="p-6 rounded-2xl glass-panel flex flex-col space-y-2">
+        <div class="w-10 h-10 rounded-xl bg-violet-950/60 border border-violet-800/60 text-violet-400 flex items-center justify-center mb-2">
+          <i class="fa-solid fa-microphone-lines text-base"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white">Synced Karaoke (.LRC) Engine</h4>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Direct integration with LRCLIB search, auto-formatting [mm:ss.xx] timestamps into standard ID3 SYLT/USLT and MP4 atoms.
+        </p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="p-6 rounded-2xl glass-panel flex flex-col space-y-2">
+        <div class="w-10 h-10 rounded-xl bg-cyan-950/60 border border-cyan-800/60 text-cyan-400 flex items-center justify-center mb-2">
+          <i class="fa-solid fa-crop-simple text-base"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white">1:1 HD Canvas Cropper</h4>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Auto center-crops any aspect ratio into a crisp 1:1 HD square and standardizes resolution before embedding.
+        </p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="p-6 rounded-2xl glass-panel flex flex-col space-y-2">
+        <div class="w-10 h-10 rounded-xl bg-amber-950/60 border border-amber-800/60 text-amber-400 flex items-center justify-center mb-2">
+          <i class="fa-solid fa-gauge-high text-base"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white">Lossless Tag Injection</h4>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Only metadata containers and atom tables are adjusted. Audio fidelity is 100% bit-for-bit preserved.
+        </p>
+      </div>
+
+      <!-- Feature 5 -->
+      <div class="p-6 rounded-2xl glass-panel flex flex-col space-y-2">
+        <div class="w-10 h-10 rounded-xl bg-rose-950/60 border border-rose-800/60 text-rose-400 flex items-center justify-center mb-2">
+          <i class="fa-solid fa-mobile-screen-button text-base"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white">Universal Player Support</h4>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Recognized by Poweramp, Apple Music, Samsung Music, VLC, Musixmatch, Windows Media Player, and modern car infotainment.
+        </p>
+      </div>
+
+      <!-- Feature 6 -->
+      <div class="p-6 rounded-2xl glass-panel flex flex-col space-y-2">
+        <div class="w-10 h-10 rounded-xl bg-indigo-950/60 border border-indigo-800/60 text-indigo-400 flex items-center justify-center mb-2">
+          <i class="fa-solid fa-server text-base"></i>
+        </div>
+        <h4 class="text-sm font-bold text-white">Dual Engine Architecture</h4>
+        <p class="text-xs text-zinc-400 leading-relaxed">
+          Run 100% in-browser on GitHub Pages or connect to Python FastAPI backend with Mutagen for server deployments.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- SUPPORTED FORMATS MATRIX                                                  -->
+  <!-- ========================================================================= -->
+  <section id="formats" class="studio-container py-16 border-t border-zinc-900 scroll-mt-16">
+    <div class="text-center max-w-2xl mx-auto mb-12">
+      <h2 class="text-xs font-semibold uppercase tracking-wider theme-accent-text">Compatibility Specs</h2>
+      <p class="text-2xl sm:text-3xl font-bold text-white mt-1">Supported Formats & Standards</p>
+    </div>
+
+    <div class="overflow-x-auto w-full glass-panel rounded-2xl">
+      <table class="w-full text-left text-xs">
+        <thead class="bg-zinc-900/80 border-b border-zinc-800 text-zinc-300 font-semibold uppercase text-[10px] tracking-wider">
+          <tr>
+            <th class="p-4">Format</th>
+            <th class="p-4">Container</th>
+            <th class="p-4">Tagging Standard</th>
+            <th class="p-4">Artwork (1:1 HD)</th>
+            <th class="p-4">Synced Lyrics (.LRC)</th>
+            <th class="p-4">Mobile Players</th>
+          </tr>
+        </thead>
+        <tbody class="divide-y divide-zinc-800/60 text-zinc-400">
+          <tr class="hover:bg-zinc-900/30 transition">
+            <td class="p-4 font-bold text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-violet-400"></span> MP3 (.mp3)
+            </td>
+            <td class="p-4 font-mono text-zinc-300">MPEG-1/2 Audio Layer III</td>
+            <td class="p-4">ID3v2.3 / ID3v2.4 & ID3v1</td>
+            <td class="p-4 text-emerald-400 font-medium"><i class="fa-solid fa-check"></i> APIC Frame</td>
+            <td class="p-4 text-emerald-400 font-medium"><i class="fa-solid fa-check"></i> SYLT & USLT</td>
+            <td class="p-4 text-zinc-300">Poweramp, Samsung, Apple, VLC</td>
+          </tr>
+          <tr class="hover:bg-zinc-900/30 transition">
+            <td class="p-4 font-bold text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-emerald-400"></span> M4A / AAC (.m4a)
+            </td>
+            <td class="p-4 font-mono text-zinc-300">ISO Base Media File / MP4</td>
+            <td class="p-4">Apple QuickTime Atoms (<code class="text-zinc-300">ilst</code>)</td>
+            <td class="p-4 text-emerald-400 font-medium"><i class="fa-solid fa-check"></i> <code class="text-zinc-300">covr</code> Atom</td>
+            <td class="p-4 text-emerald-400 font-medium"><i class="fa-solid fa-check"></i> <code class="text-zinc-300">&copy;lyr</code> Atom</td>
+            <td class="p-4 text-zinc-300">Apple Music, Poweramp, Car Audio</td>
+          </tr>
+          <tr class="hover:bg-zinc-900/30 transition">
+            <td class="p-4 font-bold text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-cyan-400"></span> FLAC (.flac)
+            </td>
+            <td class="p-4 font-mono text-zinc-300">Free Lossless Audio Codec</td>
+            <td class="p-4">Vorbis Comments & Metadata Blocks</td>
+            <td class="p-4 text-emerald-400 font-medium"><i class="fa-solid fa-check"></i> PICTURE Block</td>
+            <td class="p-4 text-emerald-400 font-medium"><i class="fa-solid fa-check"></i> LYRICS Tag</td>
+            <td class="p-4 text-zinc-300">VLC, Poweramp, Hi-Fi DACs</td>
+          </tr>
+          <tr class="hover:bg-zinc-900/30 transition">
+            <td class="p-4 font-bold text-white flex items-center gap-2">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span> WAV (.wav)
+            </td>
+            <td class="p-4 font-mono text-zinc-300">Resource Interchange File (RIFF)</td>
+            <td class="p-4">RIFF INFO Chunks & ID3 Chunks</td>
+            <td class="p-4 text-amber-400 font-medium"><i class="fa-solid fa-minus"></i> External ID3</td>
+            <td class="p-4 text-emerald-400 font-medium"><i class="fa-solid fa-check"></i> Embedded ID3</td>
+            <td class="p-4 text-zinc-300">DAWs, VLC, QuickTime</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Container Sniffing Callout -->
+    <div class="mt-4 p-4 rounded-xl bg-zinc-950 border border-zinc-800 text-xs text-zinc-400 flex items-start gap-3">
+      <i class="fa-solid fa-lightbulb text-amber-400 text-base mt-0.5"></i>
+      <div>
+        <span class="font-semibold text-zinc-200">Smart Binary Sniffing:</span> Many songs downloaded from YouTube or Telegram have a <code>.mp3</code> extension but are actually AAC streams wrapped inside an ISO MP4 container. AudioTag Pro inspects the first 8 bytes (magic bytes) to correctly identify the container without corrupting the file.
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FAQ ACCORDION SECTION                                                     -->
+  <!-- ========================================================================= -->
+  <section id="faq" class="studio-container py-16 border-t border-zinc-900 scroll-mt-16">
+    <div class="text-center max-w-2xl mx-auto mb-10">
+      <h2 class="text-xs font-semibold uppercase tracking-wider theme-accent-text">Got Questions?</h2>
+      <p class="text-2xl sm:text-3xl font-bold text-white mt-1">Frequently Asked Questions</p>
+    </div>
+
+    <div class="space-y-3 max-w-3xl mx-auto">
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" onclick="toggleFaq(this)">
+          <span>Are my audio files uploaded to any server?</span>
+          <i class="fa-solid fa-chevron-down faq-icon text-xs transition-transform duration-200"></i>
+        </button>
+        <div class="faq-answer">
+          No! By default, AudioTag Pro operates 100% in your browser using modern Web APIs (ArrayBuffer, Blob, and Canvas). Your files never leave your computer or phone.
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" onclick="toggleFaq(this)">
+          <span>Can I host this on GitHub Pages?</span>
+          <i class="fa-solid fa-chevron-down faq-icon text-xs transition-transform duration-200"></i>
+        </button>
+        <div class="faq-answer">
+          Yes! This repository includes root <code>index.html</code>, <code>.nojekyll</code>, and GitHub Actions workflow for zero-config deployment on GitHub Pages. The client-side taggers run without any Python backend requirement.
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" onclick="toggleFaq(this)">
+          <span>How can I run the Python backend instead?</span>
+          <i class="fa-solid fa-chevron-down faq-icon text-xs transition-transform duration-200"></i>
+        </button>
+        <div class="faq-answer">
+          Simply run <code>python app.py</code> locally or via Docker. The frontend automatically detects the FastAPI backend on <code>/api/health</code> and allows you to toggle between In-Browser Client Mode and Python Backend Mode.
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" onclick="toggleFaq(this)">
+          <span>Does editing metadata reduce audio quality?</span>
+          <i class="fa-solid fa-chevron-down faq-icon text-xs transition-transform duration-200"></i>
+        </button>
+        <div class="faq-answer">
+          Not at all. AudioTag Pro performs lossless tag injection. Only metadata headers (ID3 frames or MP4 atoms) are modified; the actual audio bitstream (MP3, AAC, FLAC) is never re-encoded or compressed.
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" onclick="toggleFaq(this)">
+          <span>How do synced lyrics (.LRC) work in mobile music players?</span>
+          <i class="fa-solid fa-chevron-down faq-icon text-xs transition-transform duration-200"></i>
+        </button>
+        <div class="faq-answer">
+          Synced lyrics contain timestamp markers like <code>[01:23.45] lyric line</code>. AudioTag Pro embeds these timestamps into standard ID3 SYLT / USLT frames and MP4 <code>&copy;lyr</code> atoms. Mobile players like Poweramp, Samsung Music, and Musixmatch will read them and display scrolling karaoke text.
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-item">
+        <button type="button" class="faq-question" onclick="toggleFaq(this)">
+          <span>Can I upload album art in non-square aspect ratios?</span>
+          <i class="fa-solid fa-chevron-down faq-icon text-xs transition-transform duration-200"></i>
+        </button>
+        <div class="faq-answer">
+          Yes! The built-in HTML5 Canvas optimizer automatically detects non-square images, center-crops them to an exact 1:1 square, and standardizes the resolution to high-definition 800x800 JPEG before embedding.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========================================================================= -->
+  <!-- FOOTER                                                                    -->
+  <!-- ========================================================================= -->
+  <footer class="border-t border-zinc-900 bg-black/90 py-10 px-4 sm:px-8 mt-12 text-zinc-500 text-xs">
+    <div class="studio-container flex flex-col md:flex-row items-center justify-between gap-6">
+      <div class="flex items-center space-x-3">
+        <div class="w-6 h-6 rounded-lg bg-zinc-900 border border-zinc-800 flex items-center justify-center p-0.5">
+          <span class="equalizer-bar" style="height: 10px;"></span>
+          <span class="equalizer-bar" style="height: 14px; margin-left: 2px;"></span>
+          <span class="equalizer-bar" style="height: 8px; margin-left: 2px;"></span>
+        </div>
+        <span class="text-zinc-300 font-bold">AudioTag Pro</span>
+        <span>&bull; In-Browser Audio Tag Studio</span>
+      </div>
+
+      <div class="flex items-center space-x-6 text-zinc-400">
+        <a href="#studio-section" class="hover:text-white transition">Studio</a>
+        <a href="#how-it-works" class="hover:text-white transition">How It Works</a>
+        <a href="#features" class="hover:text-white transition">Features</a>
+        <a href="#formats" class="hover:text-white transition">Formats</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
+      </div>
+
+      <div class="text-zinc-600 text-[11px]">
+        &copy; 2026 AudioTag Pro. GitHub Pages & Python Dual Mode.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container"></div>
+
+  <!-- Client-side Scripts (100% In-Browser Zero-Server Engine) -->
+  <script src="./static/js/tagger/mp3_tagger.js"></script>
+  <script src="./static/js/tagger/m4a_tagger.js"></script>
+  <script src="./static/js/tagger/universal_tagger.js"></script>
+  <script src="./static/js/player.js"></script>
+  <script src="./static/js/uploader.js"></script>
+  <script src="./static/js/app.js"></script>
+
+  <!-- FAQ Toggle Script -->
+  <script>
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      if (item) {
+        item.classList.toggle('open');
+      }
+    }
+  </script>
+
+</body>
+</html>
