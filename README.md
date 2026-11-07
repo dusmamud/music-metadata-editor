@@ -251,3 +251,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 > Tip: Tagging is lossless — only metadata containers and atom tables are modified, so MP3/AAC/FLAC audio bitstreams are never re-encoded or compressed.
 > Tip: If a `.mp3` file is actually an AAC stream in an MP4 container (common with YouTube/Telegram downloads), the magic-byte sniffer detects it from the first 8 bytes instead of corrupting the file.
 > Tip: Synced karaoke lyrics use timestamped `[mm:ss.xx]` lines embedded as ID3 `SYLT`/`USLT` (MP3) or the `©lyr` atom (M4A), with LRCLIB search built in.
+> Tip: On Windows, double-click `start.bat` to launch the Python FastAPI backend, then open `http://localhost:8000` — the UI auto-detects the backend via `/api/health`.
