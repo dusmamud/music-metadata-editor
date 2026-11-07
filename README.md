@@ -249,3 +249,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 </div>
 > Tip: Switch between the 5 theme palettes — **Neon Violet**, **Cyber Emerald**, **Electric Cyan**, **Sunset Amber**, and **Crimson Rose** — from the studio UI.
 > Tip: Tagging is lossless — only metadata containers and atom tables are modified, so MP3/AAC/FLAC audio bitstreams are never re-encoded or compressed.
+> Tip: If a `.mp3` file is actually an AAC stream in an MP4 container (common with YouTube/Telegram downloads), the magic-byte sniffer detects it from the first 8 bytes instead of corrupting the file.
