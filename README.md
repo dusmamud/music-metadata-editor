@@ -248,3 +248,4 @@ If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/d
 
 </div>
 > Tip: Switch between the 5 theme palettes — **Neon Violet**, **Cyber Emerald**, **Electric Cyan**, **Sunset Amber**, and **Crimson Rose** — from the studio UI.
+> Tip: Tagging is lossless — only metadata containers and atom tables are modified, so MP3/AAC/FLAC audio bitstreams are never re-encoded or compressed.
