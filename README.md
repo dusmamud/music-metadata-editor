@@ -247,3 +247,4 @@ Distributed under the **MIT License**. Free for personal, open-source, and comme
 If you found this tool useful, give it a ⭐️ on [GitHub](https://github.com/dusmamud/music-metadata-editor)!
 
 </div>
+> Tip: Switch between the 5 theme palettes — **Neon Violet**, **Cyber Emerald**, **Electric Cyan**, **Sunset Amber**, and **Crimson Rose** — from the studio UI.
